@@ -8,10 +8,12 @@ import {
   Paper,
 } from "@mui/material";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 function LoginPage() {
     const [formData, setFormData] = useState({username: "", password: ""});
     const [error, setError] = useState("");
+    const navigate = useNavigate();
 
     const handleChange = (e) => {
         setFormData({...formData, [e.target.name]: e.target.value});
@@ -24,7 +26,7 @@ function LoginPage() {
             const { access, refresh } = res.data;
             localStorage.setItem("access_token", access);
             localStorage.setItem("refresh_token", refresh);
-            alert("Testing");
+            navigate("/upload", {replace: true});
         } catch (err) {
             setError("Invalid username or password");
         }

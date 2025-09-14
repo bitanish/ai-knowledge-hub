@@ -14,7 +14,6 @@ function App() {
 		<Router>
 			<Routes>
 				<Route path="/" element={<LoginPage/>}></Route>
-
 				{
 					isAuthenticated? (
 						<Route element={<SidebarLayout/>}>
