@@ -24,9 +24,8 @@ function LoginPage() {
             const { access, refresh } = res.data;
             localStorage.setItem("access_token", access);
             localStorage.setItem("refresh_token", refresh);
-            alert("FUCK OFF !!!");
+            alert("Testing");
         } catch (err) {
-            console.log("ERROR !!!!", err);
             setError("Invalid username or password");
         }
     }
@@ -40,13 +39,14 @@ function LoginPage() {
                 <Box component="form" onSubmit={handleSubmit}>
                     <TextField label="username" name="username" fullWidth margin="normal" value={formData.username} onChange={handleChange} required/>
                     <TextField label="password" name="password" type="password" fullWidth margin="normal" value={formData.password} onChange={handleChange} required />
-<Box sx={{ minHeight: "24px" }}> 
-  {error && (
-    <Typography variant="body2" color="error" sx={{ mt: 1 }}>
-      {error}
-    </Typography>
-  )}
-</Box>                    <Button type="submit" variant="contained" fullWidth sx={{mt:2, borderRadius: 2}}>Submit</Button>
+                    <Box sx={{ minHeight: "24px" }}> 
+                    {error && (
+                        <Typography variant="body2" color="error" sx={{ mt: 1 }}>
+                        {error}
+                        </Typography>
+                    )}
+                    </Box>                    
+                    <Button type="submit" variant="contained" fullWidth sx={{mt:2, borderRadius: 2}}>Submit</Button>
                 </Box>
             </Paper>
         </Container>
